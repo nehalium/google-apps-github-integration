@@ -19,15 +19,20 @@ var Appender = (function() {
   function buildTable(items) {
     var values = [];
     var row = [];
+    var timeStamp = getTimeStamp();
     for (var i=0; i<items.length; i++) {
       row = [];
       row.push(items[i].name);
       row.push(items[i].pr_count);
       row.push(Utilities.formatDate(new Date(), 'Etc/GMT', 'yyyy-MM-dd'));
-      row.push(Utilities.formatDate(new Date(), 'Etc/GMT', 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''));
+      row.push(timeStamp);
       values.push(row);
     }
     return values;
+  }
+  
+  function getTimeStamp() {
+    return Utilities.formatDate(new Date(), 'Etc/GMT', 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'')
   }
   
   function getSheetReference() {
