@@ -1,5 +1,4 @@
-# google-apps-github-integration
-Google Apps script to pull data from Github
+# Google Apps script to pull data from Github
 
 ## Installation ##
 1. Pull files from repo
