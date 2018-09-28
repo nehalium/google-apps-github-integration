@@ -16,6 +16,7 @@ var Appender = (function() {
     }
   }
   
+  // Returns a table based on the data specified
   function buildTable(items) {
     var values = [];
     var row = [];
@@ -31,10 +32,13 @@ var Appender = (function() {
     return values;
   }
   
+  // Returns a timestamp
+  // e.g. 2018-09-12T12:00:00.000Z
   function getTimeStamp() {
     return Utilities.formatDate(new Date(), 'Etc/GMT', 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'')
   }
   
+  // Returns a reference to the active sheet
   function getSheetReference() {
     var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
     return spreadsheet.getSheetByName(SHEET_DATA);

@@ -45,6 +45,7 @@ var Github = (function() {
     };
   }
 
+  // Returns an object with the fields in item we are interested in
   function buildTuple(item) {
     var hasNodes = item.node.pullRequests.nodes.length > 0;
     return {
@@ -58,6 +59,7 @@ var Github = (function() {
     };
   }
   
+  // Calls the API and returns the result
   function executeQuery(query) {
     var options = {
       method: 'POST',
@@ -72,6 +74,7 @@ var Github = (function() {
     return JSON.parse(json);
   }
   
+  // Constructs the graphql query
   function getQuery(numItems, cursor) {
     var template = getBaseQuery();
     var first = 'first: ' + numItems;
@@ -80,6 +83,7 @@ var Github = (function() {
     return JSON.stringify({ query: template });
   }
   
+  // Returns the base graphql query for Github
   function getBaseQuery() {
     return "{\
       organization(login: lessonnine) {\
